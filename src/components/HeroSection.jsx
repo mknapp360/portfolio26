@@ -157,8 +157,8 @@ export const HeroSection = () => {
   return (
     <>
       <SEO
-          title="Kabbalah — The Living Tree | Tarot Pathwork"
-          description="The Living Tree of Kabbalah: sephiroth, paths, and angelic correspondences—explained in clear, practical language."
+          title="Full-Stack Web Developer"
+          description="Official portfolio website of Martin Knapp, full-stack engineer building high-performance workflow applications using React, Vite, Node.js, and TypeScript."
           jsonLd={jsonLd}
         />
 
