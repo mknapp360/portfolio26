@@ -270,7 +270,7 @@ export const TestimonialSection = () => {
                 className="p-1 sm:p-2 rounded-full border border-muted-foreground/20 hover:border-primary/50 bg-background/80 backdrop-blur-sm transition-all hover:scale-110"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="h-4 w-4 sm:h-5 sm:h-5" />
+                <ChevronRight className="w-4 h-5" />
               </button>
             </div>
           )}

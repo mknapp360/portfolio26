@@ -88,14 +88,46 @@
     </script>
 
     <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZCBXSNWBQ"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+<script>
+  // --- Bot detection ---
+  const ua = navigator.userAgent.toLowerCase();
+  const botPatterns = [
+    'bot',
+    'spider',
+    'crawler',
+    'curl',
+    'python',
+    'scrapy',
+    'ahrefs',
+    'semrush',
+    'facebookexternalhit',
+    'bingpreview',
+    'uptime',
+    'headless',
+    'fetch',
+    'node'
+  ];
 
-        gtag('config', 'G-XZCBXSNWBQ');
-      </script>
+  // If user agent matches bot patterns, do NOT load GA
+  const isBot = botPatterns.some(pattern => ua.includes(pattern));
+  if (isBot) {
+    console.warn('GA4 blocked: bot user agent detected:', ua);
+  } else {
+    // --- Load GA4 only for real humans ---
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XZCBXSNWBQ";
+    document.head.appendChild(gtagScript);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+
+    gtag('js', new Date());
+    gtag('config', 'G-XZCBXSNWBQ', {
+      send_page_view: true
+    });
+  }
+</script>
   </head>
   <body>
     <!-- Skip to main content for accessibility -->
